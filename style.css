@@ -1,6 +1,6 @@
-/* style.css - Consolidated Updates */
+/* style.css - Consolidated Updates - May 16, 2025 */
 :root {
-    --primary-blue: #0072A8; /* Main theme blue */
+    --primary-blue: #0085ad; /* UPDATED Main theme blue */
     --light-gray-border: #ccc;
     --input-underline-color: #777;
     --text-dark: #333;
@@ -53,8 +53,8 @@ body {
 .header-images img {
     max-width: 150px;
     height: auto;
-    max-height: 100px; /* Constrain image height if they vary a lot */
-    object-fit: contain; /* Ensures image fits without distortion */
+    max-height: 100px;
+    object-fit: contain;
 }
 
 .tool-container {
@@ -62,8 +62,6 @@ body {
     margin: 0 auto 40px auto;
     padding: 0 15px;
 }
-
-/* The H1 style is removed as the element was removed from HTML */
 
 .form-section {
     background-color: var(--background-white);
@@ -130,8 +128,8 @@ body {
 }
 
 .radio-control input[type="radio"]:focus {
-    outline: 2px solid #7aacff;
-    outline-offset: 2px;
+    box-shadow: 0 0 0 0.2rem rgba(0, 133, 173, 0.25); /* UPDATED focus using RGB of #0085ad */
+    outline: none;
 }
 
 /* Form Row Styling */
@@ -208,7 +206,7 @@ form#selectionForm button {
 }
 
 form#selectionForm button:hover {
-    background-color: #005a9e;
+    background-color: #006a8c; /* UPDATED Darker shade of new blue #0085ad */
 }
 
 /* Results Styling */
@@ -220,7 +218,7 @@ form#selectionForm button:hover {
 }
 
 .result-item {
-    background-color: #e8f1fb;
+    background-color: #e0f1f7; /* UPDATED Light tint of new blue #0085ad */
     padding: 20px;
     margin-bottom: 20px;
     border-left: 6px solid var(--primary-blue);
@@ -254,7 +252,7 @@ form#selectionForm button:hover {
     .input-area {
         flex-direction: column;
         gap: 15px;
-        width: 100%; /* Ensure input area takes full width when stacked */
+        width: 100%;
     }
     .radio-group-wrapper {
         flex-direction: column;
@@ -264,9 +262,9 @@ form#selectionForm button:hover {
 
 @media (max-width: 480px) {
     .header-images img {
-        max-width: 120px; /* Smaller images on mobile */
+        max-width: 120px;
     }
     form#selectionForm button {
-        width: 100%; /* Full width button on small mobile */
+        width: 100%;
     }
 }
