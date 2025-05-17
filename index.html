@@ -7,32 +7,91 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Cooling Water Filtration Selection Tool</h1>
+    <div class="top-accent-bar"></div>
+
+    <header class="page-header">
+        <h2>Cooling Water Filtration</h2>
+        <div class="header-images">
+            <img src="placeholder-filter1.png" alt="Filtration System Example 1">
+            <img src="placeholder-filter2.png" alt="Filtration System Example 2">
+            <img src="placeholder-filter3.png" alt="Filtration System Example 3">
+        </div>
+    </header>
+
+    <div class="tool-container">
+        <h1>Cooling Water Filtration Selection Tool</h1> <div class="form-section system-type-section">
+            <div class="radio-group-wrapper">
+                <div class="radio-control">
+                    <label for="open" class="radio-visual-label">Open</label>
+                    <input type="radio" id="open" name="systemType" value="Open" onclick="showOpenFields()">
+                </div>
+                <div class="radio-control">
+                    <label for="closed" class="radio-visual-label">Closed</label>
+                    <input type="radio" id="closed" name="systemType" value="Closed" onclick="showClosedFields()">
+                </div>
+            </div>
+        </div>
+
         <form id="selectionForm">
-            <div class="form-group">
-                <label for="systemType">System Type:</label>
-                <input type="radio" id="open" name="systemType" value="Open" onclick="showOpenFields()"> Open
-                <input type="radio" id="closed" name="systemType" value="Closed" onclick="showClosedFields()"> Closed
+            <div id="openFields" style="display:none;"> <div class="form-section">
+                    <div class="form-row">
+                        <div class="row-title">Open</div>
+                        <div class="input-area">
+                            <div class="input-unit">
+                                <label for="recircRate">Recirc</label>
+                                <input type="number" id="recircRate" name="recircRate" class="underline-input">
+                            </div>
+                            <div class="input-unit">
+                                <label for="tonnage">Tonnage</label>
+                                <input type="number" id="tonnage" name="tonnage" class="underline-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="row-title">Electrical Cost</div>
+                        <div class="input-area">
+                            <div class="input-unit full-width">
+                                <label for="electricalCostOpen">$/kWh</label>
+                                <input type="number" id="electricalCostOpen" name="electricalCostOpen" step="0.01" class="underline-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="openFields" class="form-group" style="display:none;">
-                <label for="recircRate">Recirc Rate (gpm):</label>
-                <input type="number" id="recircRate" name="recircRate">
-                <label for="tonnage">Tonnage (tons):</label>
-                <input type="number" id="tonnage" name="tonnage">
-                <label for="electricalCostOpen">Electrical Cost ($/kWh):</label>
-                <input type="number" id="electricalCostOpen" name="electricalCostOpen" step="0.01">
+
+            <div id="closedFields" style="display:none;"> <div class="form-section">
+                    <div class="form-row">
+                        <div class="row-title">Closed</div>
+                        <div class="input-area">
+                             <div class="input-unit full-width">
+                                <label for="systemVolume">System Volume (Gallons)</label>
+                                <input type="number" id="systemVolume" name="systemVolume" class="underline-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="form-section">
+                    <div class="form-row">
+                        <div class="row-title">Electrical Cost</div>
+                        <div class="input-area">
+                            <div class="input-unit full-width">
+                                <label for="electricalCostClosed">$/kWh</label>
+                                <input type="number" id="electricalCostClosed" name="electricalCostClosed" step="0.01" class="underline-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="closedFields" class="form-group" style="display:none;">
-                <label for="systemVolume">System Volume (Gallons):</label>
-                <input type="number" id="systemVolume" name="systemVolume">
-                <label for="electricalCostClosed">Electrical Cost ($/kWh):</label>
-                <input type="number" id="electricalCostClosed" name="electricalCostClosed" step="0.01">
-            </div>
+
             <button type="button" onclick="calculateSelection()">Submit</button>
         </form>
-        <div id="results" class="results"></div>
+
+        <div id="results" class="results">
+            </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
