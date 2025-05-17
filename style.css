@@ -1,57 +1,143 @@
+/* style.css - For your ORIGINAL HTML structure */
+
+/* --- Color Variables (adjust --primary-blue if needed) --- */
+:root {
+    --primary-blue: #0077A9; /* The blue from the image */
+    --light-gray-border: #ccc;
+    --input-underline-color: #999;
+    --text-dark: #333;
+    --text-light: #555;
+    --background-white: #ffffff;
+    --background-page: #f0f4f8;
+    --section-border-height: 8px;
+}
+
+/* --- Basic Body and Page Setup --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f8;
+    background-color: var(--background-page);
     margin: 0;
     padding: 0;
+    padding-top: 20px; /* Space for the pseudo-element top bar */
+    position: relative; /* Needed for the pseudo-element top bar */
+}
+
+/* CSS-only attempt at the top blue bar */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px; /* Adjust height of the blue bar */
+    background-color: var(--primary-blue);
+    z-index: 100;
 }
 
 .container {
     max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 40px auto; /* Original margin */
+    padding: 0; /* Container itself won't have padding if sections do */
+    background-color: transparent; /* Container is now just a wrapper */
+    box-shadow: none; /* Remove original container shadow */
+    border-radius: 0; /* Remove original container radius */
 }
 
+/* --- Title Styling (Original H1) --- */
 h1 {
-    text-align: center;
-    color: #004578;
+    text-align: left; /* Image shows title left-aligned */
+    color: var(--text-dark); /* Not the blue from form sections */
     margin-bottom: 30px;
-    font-size: 28px;
+    font-size: 28px; /* Matches "Cooling Water Filtration" in image */
+    font-weight: 500; /* Less bold than typical h1 */
+    padding: 0 15px; /* Add some padding if container has none */
 }
 
-.form-group {
-    margin-bottom: 25px;
+/* --- General Section Styling (for form-group, openFields, closedFields) --- */
+.form-group, /* This includes #openFields and #closedFields as they also have .form-group */
+#results.results /* Style results block similarly */ {
+    background-color: var(--background-white);
+    border-top: var(--section-border-height) solid var(--primary-blue);
+    padding: 25px;
+    margin-bottom: 25px; /* Space between sections */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+/* Remove bottom margin from the last section before results if results are styled as a block */
+form#selectionForm + #results.results {
+    margin-top: 25px; /* Ensure spacing if form has margin-bottom */
+}
+form#selectionForm .form-group:last-of-type { /* e.g. #closedFields if it's the last form-group in form */
+    margin-bottom: 0; /* Remove margin if button comes directly after */
 }
 
-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #333;
+
+/* --- Styling for System Type radio buttons --- */
+/* Hide the "System Type:" label if not desired (as per image) */
+.form-group > label[for="systemType"] {
+    display: none;
 }
 
-input[type="number"],
-input[type="radio"] {
+/* Container for radio buttons (the first .form-group) */
+.form-group:first-of-type { /* Targets the systemType group */
+    display: flex;
+    justify-content: center; /* Center the radio options */
+    align-items: center;
+    gap: 20px; /* Space between "Open o" and "Closed o" */
+}
+
+/* Style for the text next to radio buttons */
+.form-group:first-of-type input[type="radio"] {
+    margin-left: 5px; /* Space between text and radio circle if text comes first */
+    order: 1; /* Try to put radio after the text node (may not work robustly for loose text) */
+    accent-color: var(--primary-blue);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+/* This is very hard to style perfectly with loose text nodes "Open" and "Closed"
+   The ideal HTML for "Text o" is <label><span>Text</span><input type="radio"></label>
+   We'll style the input, the text will remain default. */
+
+
+/* --- Styling for Labels and Inputs within #openFields and #closedFields --- */
+#openFields label,
+#closedFields label {
+    display: block; /* Labels above inputs */
+    font-weight: 500; /* Original was 600 */
+    margin-bottom: 5px; /* Space between label and input line */
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+#openFields input[type="number"],
+#closedFields input[type="number"] {
     width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    padding: 8px 0px; /* Padding for underline style */
+    margin-top: 0; /* Remove original margin-top */
+    margin-bottom: 20px; /* Space after each input field */
+    border: none;
+    border-bottom: 2px solid var(--input-underline-color);
+    border-radius: 0; /* No border radius for underline style */
     font-size: 16px;
     box-sizing: border-box;
+    background-color: transparent; /* No background */
+    box-shadow: none; /* No shadow */
+    transition: border-color 0.3s ease;
 }
 
-input[type="radio"] {
-    width: auto;
-    margin-right: 10px;
+#openFields input[type="number"]:focus,
+#closedFields input[type="number"]:focus {
+    outline: none;
+    border-bottom-color: var(--primary-blue);
 }
 
+/* --- Button Styling --- */
 button {
-    width: 100%;
-    padding: 14px;
-    background-color: #0078d4;
+    display: block; /* To allow margin auto */
+    width: auto; /* Not full width by default */
+    min-width: 150px;
+    margin: 30px auto 0 auto; /* Center button, space above */
+    padding: 12px 30px;
+    background-color: var(--primary-blue);
     color: white;
     border: none;
     border-radius: 6px;
@@ -62,22 +148,30 @@ button {
 }
 
 button:hover {
-    background-color: #005a9e;
+    background-color: #005a9e; /* Darker blue */
 }
 
-.results {
-    margin-top: 40px;
+/* --- Results Styling --- */
+.results { /* This already has the .form-section-block styling via the selector above */
+    margin-top: 25px; /* Ensure it has spacing if it's not getting it from the form */
 }
 
 .result-item {
-    background-color: #e8f1fb;
+    background-color: #e8f1fb; /* Keeping your original result item style */
     padding: 20px;
     margin-bottom: 20px;
-    border-left: 6px solid #0078d4;
+    border-left: 6px solid var(--primary-blue);
     border-radius: 6px;
+}
+.result-item:last-child{
+    margin-bottom: 0;
 }
 
 .result-item h3 {
     margin-top: 0;
-    color: #004578;
+    color: var(--primary-blue);
 }
+
+/* Original CSS classes you might not need anymore or need to adjust: */
+/* .form-group input[type="radio"] specific width might not be needed */
+/* General label styling might be overridden by the more specific ones */
