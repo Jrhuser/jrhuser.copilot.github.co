@@ -1,166 +1,57 @@
-/* Define color variables for easier management */
-:root {
-    --primary-blue: #0077A9; /* Adjust this blue to match the image */
-    --light-gray-border: #ccc;
-    --input-underline-color: #999;
-    --text-dark: #333;
-    --text-light: #555;
-    --background-white: #ffffff;
-    --background-page: #f0f4f8; /* Or a lighter gray like #e9eef2 if preferred */
-    --section-border-height: 8px; /* Thickness of the blue bar on sections */
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--background-page);
-    color: var(--text-dark);
+    background-color: #f0f4f8;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-}
-
-.top-blue-bar {
-    width: 100%;
-    height: 20px; /* Adjust height as needed */
-    background-color: var(--primary-blue);
-}
-
-.page-header-container {
-    max-width: 900px; /* Or your preferred content width */
-    margin: 20px auto;
-    padding: 0 15px; /* Padding for smaller screens */
-}
-
-.page-header-container h2 {
-    font-size: 28px;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-    font-weight: 500;
-}
-
-.header-images {
-    display: flex;
-    justify-content: space-around; /* Or space-between */
-    align-items: center;
-    gap: 20px; /* Space between images */
-    margin-bottom: 30px;
-}
-
-.header-images img {
-    max-width: 150px; /* Adjust as needed */
-    height: auto;
-    border: 1px solid var(--light-gray-border); /* Optional border for images */
-    padding: 5px;
-    background-color: var(--background-white);
 }
 
 .container {
-    max-width: 900px; /* Adjust as per your design */
-    margin: 0 auto 40px auto; /* Center container, add bottom margin */
-    padding: 0 15px; /* Padding for smaller screens */
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.form-section-block {
-    background-color: var(--background-white);
-    border-top: var(--section-border-height) solid var(--primary-blue);
-    padding: 25px;
-    margin-bottom: 25px; /* Space between sections */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+h1 {
+    text-align: center;
+    color: #004578;
+    margin-bottom: 30px;
+    font-size: 28px;
 }
 
-#systemTypeSection .form-row { /* Specific styling for the radio button row */
-    justify-content: center; /* Center the radio options */
+.form-group {
+    margin-bottom: 25px;
 }
 
-.form-row {
-    display: flex;
-    align-items: flex-end; /* Align items to the bottom for underline inputs */
-    gap: 20px; /* Space between elements in a row */
-    margin-bottom: 20px;
-}
-.form-row:last-child {
-    margin-bottom: 0;
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-.radio-group {
-    display: flex;
-    justify-content: center; /* Centers the radio options within their block */
-    align-items: center;
-    gap: 30px; /* Space between "Open o" and "Closed o" */
-}
-
-.radio-option {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Space between "Label" and "o" */
-    font-size: 16px;
-    color: var(--text-dark);
-}
-
-.radio-option input[type="radio"] {
-    order: 1; /* Puts radio button after the span text if needed, but direct order in HTML is fine */
-    accent-color: var(--primary-blue); /* Styles the radio button dot */
-    transform: scale(1.2);
-    cursor: pointer;
-}
-.radio-option span {
-    cursor: pointer; /* Allow clicking on text */
-}
-
-
-.row-master-label {
-    font-weight: bold;
-    font-size: 17px;
-    color: var(--text-dark);
-    margin-right: 20px; /* Space after the main label like "Open" */
-    min-width: 120px; /* Give it some minimum width to align following items */
-    align-self: center; /* Vertically center if other items in row are taller */
-}
-
-.input-column {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Allow columns to take available space */
-}
-.input-column.full-width {
-    flex-basis: 100%; /* For single input rows like Electrical Cost */
-}
-
-.input-column label {
-    font-size: 14px;
-    color: var(--text-light);
-    margin-bottom: 5px;
-    display: block; /* Ensure label is on its own line above input */
-}
-
-.underline-input {
+input[type="number"],
+input[type="radio"] {
     width: 100%;
-    border: none;
-    border-bottom: 2px solid var(--input-underline-color);
-    padding: 8px 0; /* Adjust padding as needed */
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     font-size: 16px;
-    background-color: transparent;
-    box-shadow: none;
-    border-radius: 0;
-    transition: border-color 0.3s ease;
+    box-sizing: border-box;
 }
 
-.underline-input:focus {
-    outline: none;
-    border-bottom-color: var(--primary-blue);
-}
-
-/* Hide original form group labels if not needed with new structure */
-.form-group > label:first-child {
-    /* display: none; */ /* Uncomment if these become redundant */
+input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
 }
 
 button {
-    width: auto; /* Don't make button full width unless desired */
-    display: block; /* To allow margin auto or if it's on its own line */
-    margin: 30px auto 0 auto; /* Center button and add top margin */
-    padding: 12px 30px;
-    background-color: var(--primary-blue);
+    width: 100%;
+    padding: 14px;
+    background-color: #0078d4;
     color: white;
     border: none;
     border-radius: 6px;
@@ -171,87 +62,22 @@ button {
 }
 
 button:hover {
-    background-color: #005a9e; /* Darker blue on hover */
+    background-color: #005a9e;
 }
 
 .results {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .result-item {
     background-color: #e8f1fb;
     padding: 20px;
     margin-bottom: 20px;
-    border-left: 6px solid var(--primary-blue);
-    border-radius: 6px; /* Keep some radius */
+    border-left: 6px solid #0078d4;
+    border-radius: 6px;
 }
 
 .result-item h3 {
     margin-top: 0;
-    color: var(--primary-blue);
-}
-
-/* --- Original User CSS to be removed or adapted ---
-   You can now remove or comment out large portions of your original CSS 
-   that are replaced by the styles above, especially for:
-   - .container (some properties changed)
-   - h1 (if .page-header-container h2 replaces its role)
-   - .form-group (structure changed)
-   - label (styling is more specific now)
-   - input[type="number"], input[type="radio"] (replaced by .underline-input and .radio-option)
-   - #openFields, #closedFields (now wrapped in ...Container and styled by .form-section-block)
-*/
-
-/* Responsive Adjustments (Example) */
-@media (max-width: 768px) {
-    .page-header-container h2 {
-        font-size: 24px;
-        text-align: center;
-    }
-    .header-images {
-        flex-direction: column; /* Stack images on smaller screens */
-        gap: 15px;
-    }
-    .header-images img {
-        max-width: 120px;
-    }
-
-    .form-row {
-        flex-direction: column;
-        align-items: stretch; /* Make items full width in column */
-        gap: 15px;
-    }
-    .row-master-label {
-        margin-right: 0;
-        margin-bottom: 10px; /* Space below master label when stacked */
-        min-width: auto;
-        align-self: flex-start;
-    }
-    .radio-group {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-    .form-section-block {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .top-blue-bar {
-        height: 10px;
-    }
-    .page-header-container h2 {
-        font-size: 20px;
-    }
-    .header-images img {
-        max-width: 100px;
-    }
-     .form-section-block {
-        padding: 15px;
-    }
-    button {
-        width: 100%; /* Full width button on small mobile */
-        padding: 14px 20px;
-    }
+    color: #004578;
 }
