@@ -21,11 +21,11 @@ function calculateSelection() {
             const filtered = data.filter(item => {
                 if (systemType === 'Open') {
                     return (
-                        (recircRate && recircRate >= item["Min Recirc (gallons)"] && recircRate <= item[" Max Recirc (gallons)"]) ||
+                        (recircRate && recircRate >= item["Min Recirc (gallons)"] && recircRate <= item["Max Recirc (gallons)"]) ||
                         (tonnage && tonnage >= item["Tonnage Min"] && tonnage <= item["Tonnage Max"])
                     );
                 } else {
-                    return systemVolume >= item[" Loop Min"] && systemVolume <= item["Loop Max"];
+                    return systemVolume >= item["Loop Min"] && systemVolume <= item["Loop Max"];
                 }
             });
 
