@@ -1,13 +1,13 @@
-/* style.css - Revised for new HTML structure */
+/* style.css - Consolidated Updates */
 :root {
-    --primary-blue: #0072A8; /* Adjust this blue to match the image */
+    --primary-blue: #0072A8; /* Main theme blue */
     --light-gray-border: #ccc;
     --input-underline-color: #777;
     --text-dark: #333;
     --text-light: #555;
     --background-white: #ffffff;
-    --background-page: #e9eef2; /* Lighter page background */
-    --section-accent-height: 8px; /* Thickness of blue bar on sections */
+    --background-page: #ffffff; /* Page background set to white */
+    --section-accent-height: 8px;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 
 .top-accent-bar {
     width: 100%;
-    height: 20px; /* Adjust as desired */
+    height: 20px;
     background-color: var(--primary-blue);
 }
 
@@ -35,7 +35,7 @@ body {
     font-size: 28px;
     color: var(--text-dark);
     margin-bottom: 25px;
-    font-weight: 500; /* As per image, not too heavy */
+    font-weight: 500;
 }
 
 .header-images {
@@ -45,16 +45,16 @@ body {
     gap: 20px;
     margin-bottom: 30px;
     padding: 10px 0;
-    background-color: var(--background-white); /* Optional: if images need a white backdrop */
+    background-color: var(--background-white);
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .header-images img {
-    max-width: 150px; /* Adjust size as needed */
+    max-width: 150px;
     height: auto;
-    /* Optional: border if images don't have defined edges */
-    /* border: 1px solid var(--light-gray-border); */
+    max-height: 100px; /* Constrain image height if they vary a lot */
+    object-fit: contain; /* Ensures image fits without distortion */
 }
 
 .tool-container {
@@ -63,13 +63,7 @@ body {
     padding: 0 15px;
 }
 
-.tool-container > h1 { /* Original H1 for the tool */
-    font-size: 22px;
-    color: var(--primary-blue);
-    text-align: center;
-    margin-bottom: 30px;
-    font-weight: 600;
-}
+/* The H1 style is removed as the element was removed from HTML */
 
 .form-section {
     background-color: var(--background-white);
@@ -78,35 +72,34 @@ body {
     margin-bottom: 25px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.07);
 }
-.system-type-section { /* The first section with radio buttons */
+.system-type-section {
      padding: 20px 25px;
 }
 
-
-/* Radio Button Styling ("Text o") */
+/* Radio Button Styling */
 .radio-group-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px; /* Space between "Open o" and "Closed o" */
+    gap: 40px;
 }
 
 .radio-control {
     display: flex;
     align-items: center;
-    gap: 8px; /* Space between text and custom radio circle */
+    gap: 8px;
 }
 
 .radio-visual-label {
     font-size: 16px;
     color: var(--text-dark);
     cursor: pointer;
-    order: 1; /* Text first */
+    order: 1;
 }
 
 .radio-control input[type="radio"] {
-    order: 2; /* Visual radio circle second */
-    appearance: none; /* Hide default radio */
+    order: 2;
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     width: 18px;
@@ -119,16 +112,16 @@ body {
 }
 
 .radio-control input[type="radio"]:checked {
-    background-color: var(--primary-blue); /* Dot color */
+    background-color: var(--primary-blue);
     border-color: var(--primary-blue);
 }
 
-.radio-control input[type="radio"]:checked::before { /* Optional: inner dot style if background isn't enough */
+.radio-control input[type="radio"]:checked::before {
     content: '';
     display: block;
     width: 8px;
     height: 8px;
-    background-color: white; /* Color of the smaller dot inside */
+    background-color: white;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -137,40 +130,39 @@ body {
 }
 
 .radio-control input[type="radio"]:focus {
-    outline: 2px solid #7aacff; /* Focus ring */
+    outline: 2px solid #7aacff;
     outline-offset: 2px;
 }
 
-
-/* Form Row Styling (for Open/Closed/Electrical Cost sections) */
+/* Form Row Styling */
 .form-row {
     display: flex;
-    align-items: flex-start; /* Align to top for potentially multi-line labels */
-    gap: 20px; /* Space between row-title and input-area */
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .row-title {
     font-weight: bold;
     font-size: 17px;
     color: var(--text-dark);
-    flex-basis: 150px; /* Width for "Open", "Closed", "Electrical Cost" titles */
+    flex-basis: 150px;
     flex-shrink: 0;
-    padding-top: 8px; /* Align with first input's typical height */
+    padding-top: 8px;
 }
 
 .input-area {
     display: flex;
     flex-grow: 1;
-    gap: 25px; /* Space between multiple input units in a row */
+    gap: 25px;
 }
 
 .input-unit {
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Allow columns to share space */
+    flex-grow: 1;
 }
 .input-unit.full-width {
-    flex-basis: 100%; /* For single input rows */
+    flex-basis: 100%;
 }
 
 .input-unit label {
@@ -184,7 +176,7 @@ body {
     width: 100%;
     border: none;
     border-bottom: 2px solid var(--input-underline-color);
-    padding: 8px 2px; /* Minimal horizontal padding */
+    padding: 8px 2px;
     font-size: 16px;
     background-color: transparent;
     box-shadow: none;
@@ -197,13 +189,12 @@ body {
     border-bottom-color: var(--primary-blue);
 }
 
-
 /* Button Styling */
-form#selectionForm button { /* More specific selector */
+form#selectionForm button {
     display: block;
     width: auto;
     min-width: 180px;
-    margin: 30px auto 10px auto; /* Centered */
+    margin: 30px auto 10px auto;
     padding: 12px 30px;
     background-color: var(--primary-blue);
     color: white;
@@ -217,19 +208,18 @@ form#selectionForm button { /* More specific selector */
 }
 
 form#selectionForm button:hover {
-    background-color: #005a9e; /* Darker blue */
+    background-color: #005a9e;
 }
 
 /* Results Styling */
 #results.results {
     margin-top: 30px;
     padding: 20px;
-    background-color: var(--background-white); /* Give results a background if needed */
+    background-color: var(--background-white);
     border-radius: 4px;
-    /* border-top: var(--section-accent-height) solid var(--primary-blue); Optional: if results should also have blue bar */
 }
 
-.result-item { /* Copied from your original if structure remains same */
+.result-item {
     background-color: #e8f1fb;
     padding: 20px;
     margin-bottom: 20px;
@@ -244,7 +234,7 @@ form#selectionForm button:hover {
     color: var(--primary-blue);
 }
 
-/* Responsive Adjustments (Basic Examples) */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .page-header h2 {
         text-align: center;
@@ -257,16 +247,26 @@ form#selectionForm button:hover {
         gap: 10px;
     }
     .row-title {
-        flex-basis: auto; /* Allow it to be full width */
+        flex-basis: auto;
         margin-bottom: 10px;
         padding-top: 0;
     }
     .input-area {
-        flex-direction: column; /* Stack input units if multiple */
+        flex-direction: column;
         gap: 15px;
+        width: 100%; /* Ensure input area takes full width when stacked */
     }
     .radio-group-wrapper {
         flex-direction: column;
         gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-images img {
+        max-width: 120px; /* Smaller images on mobile */
+    }
+    form#selectionForm button {
+        width: 100%; /* Full width button on small mobile */
     }
 }
