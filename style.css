@@ -1,62 +1,83 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin-top: 40px;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #004578;
+    margin-bottom: 30px;
+    font-size: 28px;
 }
 
 .form-group {
-    margin: 20px 0;
+    margin-bottom: 25px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-input[type="number"], input[type="radio"] {
+input[type="number"],
+input[type="radio"] {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
     box-sizing: border-box;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
 }
 
 button {
     width: 100%;
-    padding: 12px;
-    background-color: #0078D7;
+    padding: 14px;
+    background-color: #0078d4;
     color: white;
     border: none;
+    border-radius: 6px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #005fa3;
+    background-color: #005a9e;
 }
 
 .results {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .result-item {
-    background-color: #eef;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-left: 5px solid #0078D7;
+    background-color: #e8f1fb;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 6px solid #0078d4;
+    border-radius: 6px;
+}
+
+.result-item h3 {
+    margin-top: 0;
+    color: #004578;
 }
